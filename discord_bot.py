@@ -7,15 +7,20 @@ CONSOLE_ID = 625271680184483853
 
 bot = commands.Bot(command_prefix='/')
 
-## 接続時の処理
+# 接続時の処理
+
+
 @bot.event
 async def on_ready():
+    time_str = time.strftime("%Y/%m/%d %H:%M", time.strptime(time.ctime()))
     print('---------------------------------------------------')
-    print('ログインしました', time.strftime("%Y/%m/%d %H:%M", time.strptime(time.ctime())))
+    print('ログインしました', time_str)
     print('---------------------------------------------------')
     return
 
-## メッセージ処理
+# メッセージ処理
+
+
 @bot.event
 async def on_message(message):
     # 例外
@@ -29,16 +34,17 @@ async def on_mention(message):
     pass
 
 
-## 切断時の処理
+# 切断時の処理
 @bot.event
 async def on_disconnect():
+    time_str = time.strftime("%Y/%m/%d %H:%M", time.strptime(time.ctime()))
     print('---------------------------------------------------')
-    print('切断しました', time.strftime("%Y/%m/%d %H:%M", time.strptime(time.ctime())))
+    print('切断しました', time_str)
     print('---------------------------------------------------')
     return
 
 
-## token の取得
+# token の取得
 if os.path.isfile(TOKEN_PATH):
     with open(TOKEN_PATH) as f:
         TOKEN = f.read()

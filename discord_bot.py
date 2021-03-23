@@ -8,7 +8,7 @@ TOKEN_PATH = 'TEST_BOT.token'
 CONSOLE_ID = {'guild_id': 588391471493808139, 'chanel_id': 625271680184483853}
 
 cog_list = [
-
+    'cogs.note_channel_manager'
 ]
 
 class Bot(commands.Bot):
@@ -25,16 +25,16 @@ class Bot(commands.Bot):
         print('---------------------------------------------------')
         return
 
-    # メッセージ処理
-    async def on_message(self, message):
-        # 例外
-        if message.outher.bot: return
+    # # メッセージ処理
+    # async def on_message(self, message:discord.Message):
+    #     # 例外
+    #     if message.author.bot: return
 
-        # メンション処理
-        if bot.user in message.mentions:
-            return await on_mention(message)
+    #     # メンション処理
+    #     if bot.user in message.mentions:
+    #         return await on_mention(message)
 
-        return
+    #     return
 
     # メンション処理
     async def on_mention(self, message):

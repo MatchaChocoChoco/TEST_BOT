@@ -41,3 +41,19 @@ def commands_befor_invoke(*commands: commands.Command):
         for command in commands:
             command.before_invoke(coro)
     return decorator
+
+def split(text:str, sep: str = ' ') -> list:
+    """
+        引用付(`"`)で囲まれた文字列を避け、`sep`でスプリットした値を返します
+    """
+    text = text.split('"')
+    result = []
+    for index, arg in enumerate(text):
+        if index%2 == 0:
+            result += [s for s in arg.split(sep) if s != '']
+        elif index == (len(text)-1):
+            result += f'"{arg}'.split(sep)
+        else:
+            result.append(arg)
+    
+    return result

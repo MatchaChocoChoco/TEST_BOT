@@ -8,7 +8,8 @@ TOKEN_PATH = 'TEST_BOT.token'
 CONSOLE_ID = {'guild_id': 588391471493808139, 'chanel_id': 625271680184483853}
 
 cog_list = [
-    'cogs.note_channel_manager'
+    'cogs.note_channel_manager',
+    'cogs.to_archive'
 ]
 
 class Bot(commands.Bot):
